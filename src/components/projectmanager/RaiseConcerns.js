@@ -57,7 +57,8 @@ const RaiseConcerns = () => {
         {/* Concern Description */}
         <div className="mb-4">
           <label htmlFor="concern_desc" className="form-label fw-bold">Concern Description</label>
-          <input type="text" {...register('concern_desc', {required:"*Concern description is required"})} className="form-control"></input>
+          {/* <input type="text" {...register('concern_desc', {required:"*Concern description is required"})} className="form-control"></input> */}
+          <textarea {...register('concern_desc', {required:"*Concern description is required"})} rows="3" cols="45"></textarea>
           {/* validation error msg */}
           {errors.concern_desc && <p className="text-danger"><strong>{errors.concern_desc?.message}</strong></p>}
         </div>
@@ -78,21 +79,40 @@ const RaiseConcerns = () => {
         {/* severity */}
         <div className="mb-4">
           <label htmlFor="severity" className="form-label fw-bold">Severity</label>
-          <input type="text" {...register('severity', {required:"*Severity is required"})} className="form-control"></input>
+          {/* <input type="text" {...register('severity', {required:"*Severity is required"})} className="form-control"></input> */}
+          <select className="form-select"  {...register('severity', {required:"*Severity is required"})}>
+            <option selected>--select Severity of Project--</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+
           {/* validation error msg */}
           {errors.severity && <p className="text-danger"><strong>{errors.severity?.message}</strong></p>}
         </div>
         {/* ConcernRaisedInternally */}
         <div className="mb-4">
           <label htmlFor="concern_raised_internally" className="form-label fw-bold">ConcernRaisedInternally</label>
-          <input type="text" {...register('concern_raised_internally', {required:"*Concern Raised Internally is required"})} className="form-control"></input>
+          {/* <input type="text" {...register('concern_raised_internally', {required:"*Concern Raised Internally is required"})} className="form-control"></input> */}
+          <select className="form-select"  {...register('concern_raised_internally', {required:"*Concern Raised Internally is required"})}>
+            <option selected>--Concern raised internally or not--</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            
+          </select>
           {/* validation error msg */}
           {errors.concern_raised_internally && <p className="text-danger"><strong>{errors.concern_raised_internally?.message}</strong></p>}
         </div>
         {/* status */}
         <div className="mb-4">
           <label htmlFor="status" className="form-label fw-bold">Status</label>
-          <input type="text" {...register('status', {required:"*status is required"})} className="form-control"></input>
+          {/* <input type="text" {...register('', status{required:"*status is required"})} className="form-control"></input> */}
+          <select className="form-select"  {...register('status', {required:"*Status is required"})}>
+            <option selected>--Status of the Concern--</option>
+            <option value="raised">Raised</option>
+            <option value="remediationsuggested">Remidiation Suggested</option>
+            <option value="mitigated">Mitigated</option>
+          </select>
           {/* validation error msg */}
           {errors.status && <p className="text-danger"><strong>{errors.status?.message}</strong></p>}
         </div>

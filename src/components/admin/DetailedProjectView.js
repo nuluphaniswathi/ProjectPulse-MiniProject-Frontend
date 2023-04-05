@@ -4,7 +4,7 @@ const DetailedProjectView = ({ project }) => {
   console.log("project in detailed view", project);
   return (
     <div className="p-3 shadow container mt-4 rounded">
-      <h2 className="text-center mt-4 display-6">Detailed view</h2>
+      <h2 className="text-center mt-4 display-6 text-primary">Detailed view</h2>
       <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 container mx-auto mt-4 ">
         <p>Project ID : {project.project_id}</p>
         <p>Project Name : {project.project_name}</p>

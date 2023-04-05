@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import DetailedProjectView from '../admin/DetailedProjectView'
+import Accordion from 'react-bootstrap/Accordion';
 
 const GetSpecificProject = () => {
     let {state}=useLocation()
@@ -125,9 +126,16 @@ const GetSpecificProject = () => {
     </div>
 
       <div>
+     
         <h2 className='text-center text-primary '>Team Composition</h2>
+
         {
-          team.length===0?<p className='text-danger text-center fs-6'>No teamComposition</p>:(<table className="table table-bordered text-center mx-auto table table-striped table-hover table-bordered rounded" style={{width:"80%"}}>
+          team.length===0?<p className='text-danger text-center fs-6'>No teamComposition</p>:
+          <Accordion defaultActiveKey="0">
+          <Accordion.Item eventKey="1">
+              <Accordion.Header>Team Composition</Accordion.Header>
+              <Accordion.Body> 
+          <table className="table table-bordered text-center mx-auto table table-striped table-hover table-bordered rounded" style={{width:"80%"}}>
           <thead className="table-dark ">
             <tr>
               <th>ProjectId</th>
@@ -156,9 +164,13 @@ const GetSpecificProject = () => {
             }  
           </tbody>
         </table>
-          )
-        }
+          </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
       
+        }
+             
+        
       
           <h2 className='text-center text-primary'>projectupdates</h2>
          {

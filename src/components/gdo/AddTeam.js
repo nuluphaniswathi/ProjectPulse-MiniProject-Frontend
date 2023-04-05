@@ -66,7 +66,15 @@ const AddTeam = () => {
         {/* role */}
         <div className="mb-4">
           <label htmlFor="role" className="form-label fw-bold">Role</label>
-          <input type="text" {...register('role', {required:"*Role is required"})} className="form-control"></input>
+          {/* <input type="text" {...register('role', {required:"*Role is required"})} className="form-control"></input> */}
+          <select className="form-select" {...register('role', {required:"*Role is required"})} >
+            <option selected>--select role in the project--</option>
+            <option value="QA">QA</option>
+            <option value="Dev">DEV</option>
+            <option value="Product">Product</option>
+            <option value="management">Management</option>
+            <option value="devops">Devops</option>
+          </select>
           {/* validation error msg */}
           {errors.role && <p className="text-danger"><strong>{errors.role?.message}</strong></p>}
         </div>
@@ -87,28 +95,50 @@ const AddTeam = () => {
         {/* status of project */}
         <div className="mb-4">
           <label htmlFor="status" className="form-label fw-bold">Status</label>
-          <input type="text" {...register('status', {required:"*status of project required"})} className="form-control"></input>
+          {/* <input type="text" {...register('status', {required:"*status of project required"})} className="form-control"></input> */}
+          <select className="form-select" {...register('status', {required:"*status of project required"})} >
+            <option selected>--select status--</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+            
+          </select>
+
           {/* validation error msg */}
           {errors.status && <p className="text-danger"><strong>{errors.status?.message}</strong></p>}
         </div>
          {/* Billing Status */}
          <div className="mb-4">
           <label htmlFor="billing_status" className="form-label fw-bold">Billing Status</label>
-          <input type="text" {...register('billing_status', {required:"*Billing status required"})} className="form-control"></input>
+          {/* <input type="text" {...register('billing_status', {required:"*Billing status required"})} className="form-control"></input> */}
+          <select className="form-select" {...register('billing_status', {required:"*Billing status required*"})} >
+            <option selected>--select billing status--</option>
+            <option value="billed">Billed</option>
+            <option value="buffer">Buffer</option> 
+          </select>
           {/* validation error msg */}
           {errors.billing_status && <p className="text-danger"><strong>{errors.billing_status?.message}</strong></p>}
         </div>
          {/* Exposed to customer */}
          <div className="mb-4">
-          <label htmlFor="exposed_to_customer" className="form-label fw-bold">Exposed to customer</label>
-          <input type="text" {...register('exposed_to_customer', {required:"*exposed_to_customer is required"})} className="form-control"></input>
+          <label htmlFor="exposed_to_customer" className="form-label fw-bold">Exposed to Customer</label>
+          {/* <input type="text" {...register('exposed_to_customer', {required:"* required"})} className="form-control"></input> */}
+          <select className="form-select" {...register('exposed_to_customer', {required:"*exposed_to_customer is required*"})} >
+            <option selected>--Exposed to Customer--</option>
+            <option value={true}>Yes</option>
+            <option value={false}>No</option> 
+          </select>
           {/* validation error msg */}
           {errors.exposed_to_customer && <p className="text-danger"><strong>{errors.exposed_to_customer?.message}</strong></p>}
         </div>
          {/* allocation type */}
          <div className="mb-4">
           <label htmlFor="allocation_type" className="form-label fw-bold">Allocation Type</label>
-          <input type="text" {...register('allocation_type', {required:"*allocation_type is required"})} className="form-control"></input>
+          {/* <input type="text" {...register('allocation_type', {required:"*allocation_type is required"})} className="form-control"></input> */}
+          <select className="form-select" {...register('allocation_type', {required:"*allocation_type is required*"})} >
+            <option selected>--AllocationType--</option>
+            <option value="permanent">Permanent</option>
+            <option value="temporary">Temporary</option> 
+          </select>
           {/* validation error msg */}
           {errors.allocation_type && <p className="text-danger"><strong>{errors.allocation_type?.message}</strong></p>}
         </div> 

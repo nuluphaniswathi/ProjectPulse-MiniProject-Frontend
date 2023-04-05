@@ -1,10 +1,13 @@
 import React,{useState} from 'react'
 import {useForm} from 'react-hook-form'
 import axios from 'axios'
+import { useSelector } from 'react-redux';
 //import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 const RaiseResourceRequest = () => {
   let {register,handleSubmit,formState:{errors},reset}=useForm();
+  let {userObj}=useSelector(state=>state.login);
+  console.log("Raise resource userobj",userObj);
   //get toekn from storage
   let token=sessionStorage.getItem("token")
   //state for error
@@ -16,6 +19,8 @@ const RaiseResourceRequest = () => {
   let navigate=useNavigate()
   //console.log(response)
   const onSubmit=async(resourceObj)=>{
+    resourceObj.gdoemail=userObj.email
+    console.log("resourceObject",resourceObj)
    reset()
     try{
         let res=await axios.post(`http://localhost:4000/gdoHead-api/projectId/${resourceObj.project_id}/resourcing-request`,resourceObj,{
@@ -55,7 +60,7 @@ const RaiseResourceRequest = () => {
         {/* Gdo Email */}
         <div className="mb-4">
           <label htmlFor="gdoemail" className="form-label fw-bold">GDOEmail</label>
-          <input type="email" {...register('gdoemail', {required:"*GDOEmailrequired"})} className="form-control"></input>
+          <input type="email" value={userObj.email} disabled className="form-control"></input>
           {/* validation error msg */}
           {errors.gdoemail && <p className="text-danger"><strong>{errors.gdoemail?.message}</strong></p>}
         </div>

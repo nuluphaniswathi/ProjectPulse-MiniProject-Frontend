@@ -54,7 +54,8 @@ const GetUsers = () => {
                 <td>{userObj.user_name}</td>
                 <td>{userObj.email}</td>
                 <td>{userObj.role}</td>
-                <button className='btn btn-primary bg-primary text-white m-2' onClick={()=>assignrole(userObj)}>AssignRole</button>
+                {userObj.role!=null?<button className='btn btn-warning bg-warning  text-white m-2' onClick={()=>assignrole(userObj)}>ChangeRole</button>:
+                <button className='btn btn-primary bg-primary text-white m-2' onClick={()=>assignrole(userObj)}>AssignRole</button> }
               </tr>)
             }
           </tbody>

@@ -22,6 +22,7 @@ const AssignRole = () => {
   
   let onSubmit=async(roleObj)=>{
     console.log("roleObject:",roleObj)
+    roleObj.email=state.email;
     reset()
     try{
       //query to update the role 

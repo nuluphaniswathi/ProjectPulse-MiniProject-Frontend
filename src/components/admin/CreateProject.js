@@ -70,7 +70,17 @@ const CreateProject = () => {
         {/* status of project */}
         <div className="mb-4">
           <label htmlFor="status_of_project" className="form-label fw-bold">Status of project</label>
-          <input type="text" {...register('status_of_project', {required:"*status of project required"})} className="form-control"></input>
+          {/* <input type="text" {...register('status_of_project', {required:"*status of project required"})} className="form-control"></input> */}
+          <select className="form-select"  {...register("status_of_project",{required:"status required"})}>
+            <option selected>---select status of project---</option>
+            <option value="Sales">Sales</option>
+            <option value="Pres-Sales">Pre-Sales</option>
+            <option value="Client Sign Off"> Client Sign Off</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed </option>
+            <option value="Paused">Paused</option>
+            <option value="Deferred">Deferred</option>
+          </select>
           {/* validation error msg */}
           {errors.status_of_project && <p className="text-danger"><strong>{errors.status_of_project?.message}</strong></p>}
         </div>
@@ -84,7 +94,13 @@ const CreateProject = () => {
         {/* overall project fitness indicator */}
         <div className="mb-4">
           <label htmlFor="overall_project_fitness_indicator" className="form-label fw-bold">overall project fitness indicator</label>
-          <input type="text" {...register('overall_project_fitness_indicator', {required:"*project fitness indicator required"})} className="form-control"></input>
+          {/* <input type="text" {...register('overall_project_fitness_indicator', {required:"*project fitness indicator required"})} className="form-control"></input> */}
+          <select className="form-select" {...register('overall_project_fitness_indicator', {required:"*project fitness indicator required"})} >
+            <option selected>---select fitness indicator---</option>
+            <option value="red">Red</option>
+            <option value="amber">Amber</option>
+            <option value="green">Green</option>
+          </select>
           {/* validation error msg */}
           {errors.overall_project_fitness_indicator && <p className="text-danger"><strong>{errors.overall_project_fitness_indicator?.message}</strong></p>}
         </div>
@@ -98,7 +114,19 @@ const CreateProject = () => {
         {/* type of project */}
         <div className="mb-4">
           <label htmlFor="type_of_project" className="form-label fw-bold">Type of project</label>
-          <input type="text" {...register('type_of_project', {required:"*type of project required"})} className="form-control"></input>
+          {/* <input type="text" {...register('type_of_project', {required:"*type of project required"})} className="form-control"></input> */}
+          <select className="form-select" {...register('type_of_project', {required:"*type of project required"})}>
+              <option selected>---select type of project---</option>
+              <option value="development">Development</option>
+              <option value="devops">DevOps</option>
+              <option value="testautomation">Test Automation</option>
+              <option value="performanceTesting">Performance Testing</option>
+              <option value="security">Security</option>
+              <option value="sustenanceEngineering">Sustenance Engineering</option>
+              <option value="mobility">Mobility</option>
+              <option value="storage">Storage</option>       
+          </select>
+
           {/* validation error msg */}
           {errors.type_of_project && <p className="text-danger"><strong>{errors.type_of_project?.message}</strong></p>}
         </div>

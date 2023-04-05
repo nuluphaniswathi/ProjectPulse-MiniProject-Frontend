@@ -73,28 +73,52 @@ const CreateProjectUpdate = () => {
         {/* schedule status */}
         <div className="mb-4">
           <label htmlFor="schedule_status" className="form-label fw-bold">Schedule Status</label>
-          <input type="text" {...register('schedule_status', {required:"*schedule is required"})} className="form-control"></input>
+          {/* <input type="text" {...register('schedule_status', {required:"*schedule is required"})} className="form-control"></input> */}
+          <select class="form-select"  {...register('schedule_status', {required:"*schedule is required"})}>
+            <option selected>--select schedule status--</option>
+            <option value="red">Red</option>
+            <option value="amber">Amber</option>
+            <option value="green">Green</option>
+          </select>
           {/* validation error msg */}
           {errors.schedule_status && <p className="text-danger"><strong>{errors.schedule_status?.message}</strong></p>}
         </div>
         {/* resourcing status */}
         <div className="mb-4">
           <label htmlFor="resourcing_status" className="form-label fw-bold">Resourcing Status</label>
-          <input type="text" {...register('resourcing_status', {required:"*Resourcing Status is required"})} className="form-control"></input>
+          {/* <input type="text" {...register('resourcing_status', {required:"*Resourcing Status is required"})} className="form-control"></input> */}
+          <select class="form-select"  {...register('resourcing_status', {required:"*Resourcing Status is required"})}>
+            <option selected>--select resourcing status--</option>
+            <option value="red">Red</option>
+            <option value="amber">Amber</option>
+            <option value="green">Green</option>
+          </select>
           {/* validation error msg */}
           {errors.resourcing_status && <p className="text-danger"><strong>{errors.resourcing_status?.message}</strong></p>}
         </div>
         {/* QualityStatus */}
         <div className="mb-4">
           <label htmlFor="quality_status" className="form-label fw-bold">Quality Status</label>
-          <input type="text" {...register('quality_status', {required:"*Quality status is required"})} className="form-control"></input>
+          {/* <input type="text" {...register('quality_status', {required:"*Quality status is required"})} className="form-control"></input> */}
+          <select class="form-select"  {...register('quality_status', {required:"*Quality Status is required"})}>
+            <option selected>--select Quality status--</option>
+            <option value="red">Red</option>
+            <option value="amber">Amber</option>
+            <option value="green">Green</option>
+          </select>
+
           {/* validation error msg */}
           {errors.quality_status && <p className="text-danger"><strong>{errors.quality_status?.message}</strong></p>}
         </div>
         {/* domain */}
         <div className="mb-4">
           <label htmlFor="client_inputs" className="form-label fw-bold">Clientinputs</label>
-          <input type="text" {...register('client_inputs', {required:"*client_inputs is required"})} className="form-control"></input>
+          {/* <input type="text" {...register('client_inputs', {required:"*client_inputs is required"})} className="form-control"></input> */}
+          <select class="form-select"  {...register('client_inputs', {required:"*Client inputs are required"})}>
+            <option selected>--select client inputs--</option>
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
           {/* validation error msg */}
           {errors.client_inputs && <p className="text-danger"><strong>{errors.client_inputs?.message}</strong></p>}
         </div>
